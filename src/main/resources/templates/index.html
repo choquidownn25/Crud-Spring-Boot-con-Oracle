@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Producto Management System</title>
+
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+</head>
+<body>
+
+<div class="container my-2">
+    <h1>Producto List</h1>
+
+    <a th:href="@{/showNewProductsForm}" class="btn btn-primary btn-sm mb-3"> Add Products </a>
+
+    <table border="1" class = "table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>Numeros</th>
+            <th>First Name</th>
+            <th>Brand id</th>
+            <th>Categoria</th>
+            <th>Años</th>
+            <th>Lista de precio</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach var="contact" items="${contacts}">
+            <tr th:each="products : ${listProducts}">
+                <td th:text="${products.id}"></td>
+
+                <td th:text="${products.name}"></td>
+                <td th:text="${products.brand_id}"></td>
+                <td th:text="${products.category_id}"></td>
+                <td th:text="${products.model_year}"></td>
+                <td th:text="${products.list_price}"></td>
+
+                <td>
+                    <a th:href="@{/showFormForUpdate/{id}(id=${products.id})}" class="btn btn-primary">Update</a>
+                    <a th:href="@{/deleteProducts/{id}(id=${products.id})}" class="btn btn-danger">Delete</a>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

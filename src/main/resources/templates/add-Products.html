@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="ISO-8859-1">
+  <title>Producto Management System</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+
+<body>
+<div class="container">
+  <h1>Producto Management System</h1>
+  <hr>
+  <h2>Save Producto</h2>
+
+  <form action="#" th:action="@{/addProducts}" th:object="${products}" method="POST">
+    <input type="text" th:field="*{id}" placeholder="Producto numero" class="form-control mb-4 col-4">
+
+    <input type="text" th:field="*{name}" placeholder="Producto Nombre comercio" class="form-control mb-4 col-4">
+    <input type="text" th:field="*{brand_id}" placeholder="Producto Nombre brand_id" class="form-control mb-4 col-4">
+    <input type="text" th:field="*{category_id}" placeholder="Numero category_id" class="form-control mb-4 col-4">
+    <input type="text" th:field="*{model_year}" placeholder="Numero model_year" class="form-control mb-4 col-4">
+    <input type="text" th:field="*{list_price}" placeholder="Numero list_price" class="form-control mb-4 col-4">
+        <button type="submit" class="btn btn-info col-2"> Save products</button>
+  </form>
+
+  <hr>
+
+  <a th:href="@{/}"> Back to products List</a>
+</div>
+</body>
+
+</html>
